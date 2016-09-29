@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+     Home
+    </ion-title>
+    <ion-buttons end>
+      <button (click)="reset()"><ion-icon name="refresh"></ion-icon></button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button (click)="addItem()"><ion-icon name="add"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items" (click)="updateItem(item)">
+      <ion-item>
+        {{item.title}}
+        <ion-badge item-right>{{item.counter}}</ion-badge>
+      </ion-item>
+      <ion-item-options>
+        <button tappable danger (click)="removeItem(item)"><ion-icon name="trash"></ion-icon></button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
